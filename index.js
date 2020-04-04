@@ -384,7 +384,6 @@ class Simulation {
         crashC = c;
       }
     }
-    crashC /= dv;
     if( crashC <= this.speed ){
       sphere.step( crashC );
       if( crashType == OTHERSPHERE ){
