@@ -70,7 +70,7 @@ class Camera{
   }
 }
 
-var ctx, simulation;
+var canvas, ctx, simulation;
 
 function drawSquare( p0, p1, p2, p3, color ){
   ctx.strokeStyle = color;
@@ -470,16 +470,6 @@ class Simulation {
   }
 }
 
-window.onload = function(){
-  var canvas = document.getElementById( "screen" );
-  canvas.width = document.body.clientWidth;
-  canvas.height = document.body.clientHeight;
-  ctx = canvas.getContext( '2d' );
-  simulation = new Simulation( ctx );
-  initKeys();
-  window.requestAnimationFrame( animate );
-}
-
 var keys= {};
 
 function initKeys(){
@@ -543,5 +533,22 @@ function updatePos(){
 function animate(){
   updatePos();
   simulation.draw();
+  window.requestAnimationFrame( animate );
+}
+
+window.onload = function(){
+  canvas = document.getElementById( "screen" );
+  canvas.width = document.body.clientWidth;
+  canvas.height = document.body.clientHeight;
+  ctx = canvas.getContext( '2d' );
+  simulation = new Simulation( ctx );
+  window.addEventListener( 'resize', function(){
+    canvas.width = document.body.clientWidth;
+    canvas.height = document.body.clientHeight;
+    simulation.camera.screenX = canvas.width / 2;
+    simulation.camera.screenY = canvas.width / 2;
+    simulation.camera.screenZ = canvas.height / 2;
+  });
+  initKeys();
   window.requestAnimationFrame( animate );
 };
