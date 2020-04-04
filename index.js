@@ -272,9 +272,6 @@ class Simulation {
   }
 
   step( sphere ){
-    if( !this.noCollisionsUnprecise() ){
-      console.log( "ERROR" );
-    }
     var x = sphere.position.x;
     var y = sphere.position.y;
     var z = sphere.position.z;
