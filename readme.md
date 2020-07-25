@@ -3,7 +3,7 @@
 
 ### Overview
 
-This simulates spheres moving around in a cube, including collisions.
+This programs runs a simulation of spheres moving around in a 3D cube. It displays this scene using 3D graphics. The computer graphics algorithms are implemented by hand.
 
 ### Controls
 
